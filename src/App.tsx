@@ -4,7 +4,7 @@ import './App.css';
 
 import Gameboard from './components/Gameboard';
 
-interface IGameData {
+interface basicGame {
   id: number,
   board: [],
   state: string,
@@ -14,11 +14,12 @@ interface IGameData {
 
 const App = () => {
 
-  const [gameData, setGameData] = useState<IGameData>()
+  const [gameData, setGameData] = useState<basicGame>()
   const [board, setBoard] = useState()
-  const mineSweeperAPI:string = 'http://minesweeper-api.herokuapp.com/games';
+  const mineSweeperAPI = 'http://minesweeper-api.herokuapp.com/games';
 
   useEffect(() => {
+    console.log('hit')
     const fetchData = async () => {
       const result = await axios.post(`${mineSweeperAPI}?difficulty=0`)
       setGameData(result.data)

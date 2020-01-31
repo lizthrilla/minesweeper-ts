@@ -14,7 +14,7 @@ interface IGameData {
 
 const App = () => {
 
-  const [gameData, setGameData] = useState<IGameData | null>()
+  const [gameData, setGameData] = useState<IGameData>()
   const [board, setBoard] = useState()
   const mineSweeperAPI:string = 'http://minesweeper-api.herokuapp.com/games';
 
@@ -27,16 +27,13 @@ const App = () => {
     }
     fetchData()
   }, [])
-  console.log(gameData?.board)
 
   const cellCheck = (x:string, y:string) => {
-    console.log(x, y)
     const fetchBoard = async () => {
       const result = await axios.post(
         `${mineSweeperAPI}/${gameData?.id}/check?row=${y}&col=${x}`
       )
       setBoard(result.data.board)
-      console.log(result.data.board)
     }
     fetchBoard()
   }

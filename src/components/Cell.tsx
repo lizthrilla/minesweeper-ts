@@ -5,7 +5,6 @@ type Props = {
     handleClick: () => void
 }
 const Cell = (Props:any) => {
-    console.log(Props.value)
     const isEmpty:string = Props.value === ' ' ? 'empty' : 'null';
 
     return (

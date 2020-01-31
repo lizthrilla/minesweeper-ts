@@ -9,9 +9,7 @@ const Gameboard = (Props:any) => {
 
 
     const rows = Props.board?.map((row:[], i:number) => {
-        console.log(row)
         const cols = row.map((cell:string, j:number) => {
-            console.log(cell)
             return (
                 <Cell 
                     value={cell.toString()} 

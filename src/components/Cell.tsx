@@ -1,9 +1,16 @@
 import React from 'react'
 
-const Cell = () => {
+type Props = {
+    value: string,
+    handleClick: () => void
+}
+const Cell = (Props:any) => {
+    console.log(Props.value)
+    const isEmpty:string = Props.value === ' ' ? 'empty' : 'null';
+
     return (
-        <td>
-            <p>X</p>
+        <td onClick={Props.handleClick} className={isEmpty}>
+            <p>{Props.value}</p>
         </td>
     )
 }

@@ -4,9 +4,11 @@ import Cell from './Cell'
 type Props = {
     board: [],
     cellCheck: () => void,
+    state: {}
 }
 const Gameboard = (Props:any) => {
-
+    const test = Props.state.board
+    console.log(test)
 
     const rows = Props.board?.map((row:[], i:number) => {
         const cols = row.map((cell:string, j:number) => {
